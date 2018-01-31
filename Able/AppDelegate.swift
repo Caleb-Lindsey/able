@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         UIApplication.shared.statusBarStyle = .lightContent
         
+        Global.userIncome = UserDefaults.standard.integer(forKey: "userIncome")
+        
         let dataSource = DataSource()
         dataSource.fillExpenseData()
         

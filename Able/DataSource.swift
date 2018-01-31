@@ -14,7 +14,8 @@ struct Global {
     static var arrayOfExpenses : [Expense] = [Expense]()
     
     // Color Pallette
-    static var orangeColor = UIColor(displayP3Red: 214/255, green: 110/255, blue: 20/255, alpha: 1)
+    static var orangeColor = UIColor(displayP3Red: 250/255, green: 130/255, blue: 20/255, alpha: 1)
+    static var orangeColor2 = UIColor(displayP3Red: 150/255, green: 40/255, blue: 0/255, alpha: 1)
     
 }
 

@@ -14,11 +14,15 @@ class Main : UIViewController, UITableViewDataSource, UITableViewDelegate {
     var cellID = "cellID"
     var dataHandle : DataSource = DataSource()
     var initialIndexPath : IndexPath!
+    var gradientView = RadialGradientView()
+    let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
     
     var mainTableView : UITableView = {
-        let tableView = UITableView()
-        tableView.backgroundColor = UIColor.black
+        let tableView = UITableView.init(frame: CGRect.zero, style: .grouped)
+        tableView.backgroundColor = UIColor.clear
         tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = .none
+        tableView.keyboardDismissMode = .onDrag
         return tableView
     }()
     
@@ -27,9 +31,18 @@ class Main : UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         let longpress = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognized(gestureRecognizer:)))
         mainTableView.addGestureRecognizer(longpress)
-        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
         view.backgroundColor = UIColor.black
         
+        let newLayer = CAGradientLayer()
+        newLayer.colors = [Global.orangeColor.cgColor, Global.orangeColor2.cgColor]
+        newLayer.frame = self.view.frame
+        self.view.layer.insertSublayer(newLayer, at: 0)
+        
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.regular)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.view.addSubview(blurEffectView)
         
         // Place MainTableView
         mainTableView.frame = CGRect(x: 0, y: statusBar.frame.height, width: view.frame.width, height: view.frame.height - statusBar.frame.height)
@@ -37,6 +50,8 @@ class Main : UIViewController, UITableViewDataSource, UITableViewDelegate {
         mainTableView.dataSource = self
         mainTableView.register(ExpenseCell.self, forCellReuseIdentifier: cellID)
         view.addSubview(mainTableView)
+        
+        dataHandle.calculatePayables(tableView: mainTableView)
         
     }
     
@@ -46,6 +61,9 @@ class Main : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : ExpenseCell = ExpenseCell(style: UITableViewCellStyle.default, reuseIdentifier: cellID, expense: Global.arrayOfExpenses[indexPath.row])
+        if !cell.expense.payable {
+            cell.contentView.backgroundColor = UIColor.black.withAlphaComponent(CGFloat(0.015 * Double(indexPath.row)))
+        }
         return cell
     }
     

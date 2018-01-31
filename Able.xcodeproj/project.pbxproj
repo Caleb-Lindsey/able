@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E50614A202199DB00A9BF4C /* RadialGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E506149202199DB00A9BF4C /* RadialGradientView.swift */; };
 		2EABD3BA201E649B0035DBFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EABD3B9201E649B0035DBFD /* AppDelegate.swift */; };
 		2EABD3C2201E649B0035DBFD /* Able.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2EABD3C0201E649B0035DBFD /* Able.xcdatamodeld */; };
 		2EABD3C4201E649B0035DBFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EABD3C3201E649B0035DBFD /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E506149202199DB00A9BF4C /* RadialGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradientView.swift; sourceTree = "<group>"; };
 		2EABD3B6201E649B0035DBFD /* Able.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Able.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EABD3B9201E649B0035DBFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2EABD3C1201E649B0035DBFD /* Able.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Able.xcdatamodel; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				2EABD3F1201EC76F0035DBFD /* ExpenseCell.swift */,
 				2EABD3F3201ECC460035DBFD /* MainHeader.swift */,
 				2EABD3F7201FAFC40035DBFD /* ExpenseField.swift */,
+				2E506149202199DB00A9BF4C /* RadialGradientView.swift */,
 			);
 			path = Customs;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				2EABD3F8201FAFC40035DBFD /* ExpenseField.swift in Sources */,
 				2EABD3EF201EC6780035DBFD /* Expense.swift in Sources */,
 				2EABD3BA201E649B0035DBFD /* AppDelegate.swift in Sources */,
+				2E50614A202199DB00A9BF4C /* RadialGradientView.swift in Sources */,
 				2EABD3F2201EC76F0035DBFD /* ExpenseCell.swift in Sources */,
 				2EABD3F4201ECC460035DBFD /* MainHeader.swift in Sources */,
 				2EABD3EB201E64E00035DBFD /* Main.swift in Sources */,

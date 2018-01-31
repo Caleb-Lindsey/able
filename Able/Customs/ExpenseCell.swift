@@ -10,7 +10,7 @@ import UIKit
 
 class ExpenseCell : UITableViewCell {
     
-    private var expense : Expense!
+    var expense : Expense!
     
     var tabView : UIView = {
         let view = UIView()
@@ -36,7 +36,8 @@ class ExpenseCell : UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.expense = expense
         self.selectionStyle = .none
-        self.contentView.backgroundColor = UIColor.black
+        self.backgroundColor = UIColor.clear
+        self.contentView.backgroundColor = UIColor.clear
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -61,13 +62,14 @@ class ExpenseCell : UITableViewCell {
         self.contentView.addSubview(costLabel)
         
         if self.expense.payable {
-            self.tabView.backgroundColor = UIColor.green
-            self.titleLabel.textColor = UIColor.green
-            self.costLabel.textColor = UIColor.green
+            self.tabView.backgroundColor = UIColor.white
+            self.titleLabel.textColor = UIColor.white
+            self.costLabel.textColor = UIColor.white
         } else {
-            self.tabView.backgroundColor = UIColor.red
-            self.titleLabel.textColor = UIColor.red
-            self.costLabel.textColor = UIColor.red
+            self.tabView.backgroundColor = UIColor.black.withAlphaComponent(0.35)
+            self.titleLabel.textColor = UIColor.black.withAlphaComponent(0.35)
+            self.costLabel.textColor = UIColor.black.withAlphaComponent(0.35)
+            
         }
         
         

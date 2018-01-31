@@ -16,7 +16,7 @@ class MainHeader : UIView {
     
     var incomeButton : UIButton = {
         let button = UIButton()
-        button.setTitleColor(UIColor.black, for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
         button.setTitleColor(UIColor.lightGray, for: UIControlState.highlighted)
         button.titleLabel?.font = UIFont(name: "helvetica", size: 65)
         button.titleLabel?.textAlignment = .center
@@ -80,6 +80,8 @@ class MainHeader : UIView {
     
     override func layoutSubviews() {
         
+        self.backgroundColor = UIColor.clear
+        
         // Place Income Button
         incomeButton.frame = CGRect(x: 0, y: -1, width: self.frame.width, height: self.frame.height / 2)
         incomeButton.setTitle("$\(Global.userIncome)", for: .normal)
@@ -107,7 +109,6 @@ class MainHeader : UIView {
         newIncomeField.leftViewMode = .always
         self.addSubview(newIncomeField)
         
-        
     }
     
     @objc func incomeTapped() {
@@ -134,6 +135,11 @@ class MainHeader : UIView {
         if newIncomeField.text != "" {
             if let amount = Int(newIncomeField.text!) {
                 Global.userIncome = amount
+                
+                let prefs : UserDefaults = UserDefaults.standard
+                prefs.set(amount, forKey: "userIncome")
+                prefs.synchronize()
+                
                 incomeButton.setTitle("$\(amount)", for: .normal)
                 dataHandle.calculatePayables(tableView: tableView)
             }
@@ -188,9 +194,6 @@ class MainHeader : UIView {
     
     
 }
-
-
-
 
 
 

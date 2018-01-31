@@ -15,6 +15,7 @@ class ExpenseField : UIView, UITextFieldDelegate {
     
     var titleField : UITextField = {
         let textField = UITextField()
+        textField.textColor = UIColor.white
         textField.placeholder = "Expense"
         textField.returnKeyType = UIReturnKeyType.done
         return textField
@@ -22,13 +23,14 @@ class ExpenseField : UIView, UITextFieldDelegate {
     
     var barrierView : UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.black
+        view.backgroundColor = UIColor.white
         return view
     }()
     
     var costField : UITextField = {
         let textField = UITextField()
         textField.placeholder = "Cost"
+        textField.textColor = UIColor.white
         textField.returnKeyType = UIReturnKeyType.done
         textField.keyboardType = .numberPad
         return textField
